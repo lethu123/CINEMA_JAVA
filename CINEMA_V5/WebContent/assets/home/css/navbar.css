@@ -1,0 +1,40 @@
+#text{
+	color:red;
+}
+
+.fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 900;
+	background: rgba(19, 21, 31, 0.95);
+	border-bottom: 2px solid white;
+	transition: all 0.5s;
+}
+
+.mainmenu li ul {
+	min-width: 205px !important;
+}
+
+.login-box input {
+	margin-bottom: 10px !important;
+	color: black !important;
+}
+
+.login-box form .theme-btn {
+	border-radius: 15px !important;
+	margin-top: 15px !important;
+}
+
+.login-box form .theme-btn:hover {
+	color: #eb315a !important;
+	/*background:#eb315a !important; */
+}
+
+.login-box h6 {
+	margin-bottom: 10px !important;
+}
+
+.login-box form .theme-btn+span {
+	margin: 10px 0 !important;
+}

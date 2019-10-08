@@ -1,0 +1,115 @@
+/* #text{
+	color:red;
+}
+
+.fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 900;
+	background: rgba(19, 21, 31, 0.95);
+	border-bottom: 2px solid white;
+	transition: all 0.5s;
+}
+
+.mainmenu li ul {
+	min-width: 205px !important;
+}
+
+.login-box input {
+	margin-bottom: 10px !important;
+	color: black !important;
+}
+
+.login-box form .theme-btn {
+	border-radius: 15px !important;
+	margin-top: 15px !important;
+}
+
+.login-box form .theme-btn:hover {
+	color: #eb315a !important;
+}
+
+.login-box h6 {
+	margin-bottom: 10px !important;
+}
+
+.login-box form .theme-btn+span {
+	margin: 10px 0 !important;
+}  */
+.single-portfolio-img img {
+	width: 100%;
+	height: 100%;
+}
+
+.single-portfolio-img {
+	height: 185px;
+}
+
+.portfolio-sidebar .left {
+	display: flex !important;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.portfolio-sidebar .left .info_film {
+	flex-basis: 67%;
+}
+
+.portfolio-sidebar {
+	margin-top: 40px;
+}
+
+.portfolio-sidebar .left .img {
+	flex-basis: 30%;
+	margin-bottom: 15px;
+	height: 85px;
+}
+
+.portfolio-sidebar img {
+	height: 100% !important;
+	width: 100% !important;
+	margin-top: 0 !important;
+}
+
+/* detail film */
+.breadcrumb-area-custom {
+	padding: 0px 0px 200px !important;
+}
+
+.transformers-content {
+	height: 320px !important;
+}
+
+.transformers-content>img {
+	height: 100%;
+}
+
+.hero-area-content {
+	width: 90% !important;
+	margin: auto !important;
+	height: 300px;
+}
+.hero-area-content > img {
+	height: 100%;
+}
+
+/* movie-playing*/
+.image .video-area{
+	height: 270px;
+}
+.image .video-area > img {
+	height: 100%;
+}
+ .image > h3 {
+	padding-top: 20px;
+}
+
+/* respponsive */
+@media ( min-width : 992px) {
+	.portfolio-sidebar .left .img {
+		height: 50px !important;
+		margin-bottom: 10px;
+	}
+}
