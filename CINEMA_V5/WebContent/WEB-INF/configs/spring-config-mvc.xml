@@ -25,6 +25,8 @@
 		p:prefix="/WEB-INF/views/" p:suffix=".jsp"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
    	
+   	
+   	
    	<!-- Cấu hình package chứa các controller -->
 	<context:component-scan base-package="Controllers, Daos"/>
 

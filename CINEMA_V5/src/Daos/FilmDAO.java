@@ -1,6 +1,7 @@
 package Daos;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -8,11 +9,14 @@ import javax.transaction.Transactional;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import Entitys.Account;
 import Entitys.Film;
+import Models.Notify;
 
 //@Repository
 @Transactional
@@ -21,7 +25,7 @@ import Entitys.Film;
 public class FilmDAO {
 	@Autowired
 	SessionFactory factory;
-	// category = 1 la phim dang chieu, category = 2 l� phim sap chieu;
+	// category = 1 la phim dang chieu, category = 2 là phim sap chieu;
 	// type = 1 phim tinh cam, type = 2 phim hanh dong
 
 	// get all film
@@ -34,6 +38,7 @@ public class FilmDAO {
 			return listFilm;
 		} catch (Exception e) {
 			// TODO: handle exception
+			System.out.print("error");
 		}
 		return new ArrayList<>();
 	}
@@ -109,7 +114,54 @@ public class FilmDAO {
 
 		return film;
 	}
-	
-	
+
+	// get film by name
+	public Film getlFilmByName(String name) {
+		Film film = null;
+		Session session = factory.getCurrentSession();
+		String hql = "FROM Film f WHERE f.name = :name";
+		Query query = session.createQuery(hql).setParameter("name", name);
+
+		List<Film> list = query.list();
+		return list.size() > 0 ? list.get(0) : null;
+	}
+
+	public String CreateOrUpate(Film film) {
+		// Notify notify;
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			session.saveOrUpdate(film);
+			t.commit();
+			return "successfully!";
+		} catch (Exception e) {
+			t.rollback();
+			return "fail!";
+		} finally {
+			session.close();
+		}
+	}
+
+	// delete
+	public Notify delete(int id) {
+		Notify notify = null;
+		Film film;
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		try {
+			film = (Film) session.get(Film.class, id);
+			session.delete(film);
+			t.commit();
+			notify = new Notify(0, "successfully!");
+			return notify;
+
+		} catch (Throwable e) {
+			t.rollback();
+			notify = new Notify(1, "Vui lòng xóa những thành phần liên quan !");
+			return notify;
+		} finally {
+			session.close();
+		}
+	}
 
 }

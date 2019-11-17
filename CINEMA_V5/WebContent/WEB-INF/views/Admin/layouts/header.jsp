@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
+<link rel="icon" type="image/png"
+	href="${pageContext.request.contextPath}/assets/home/img/phim.png" />
 <!-- Google Fonts -->
 <link
 	href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext"
@@ -46,6 +47,10 @@
 <!-- Waves Effect Css -->
 <link
 	href="${pageContext.request.contextPath}/assets/admin/plugins/node-waves/waves.css"
+	rel="stylesheet" />
+
+<link
+	href="${pageContext.request.contextPath}/assets/admin/plugins/sweetalert/sweetalert.css"
 	rel="stylesheet" />
 
 <!-- Custom Css -->

@@ -3,6 +3,7 @@
 
 
 
+
 <!-- Favicon Icon -->
 <link rel="icon" type="image/png"
 	href="${pageContext.request.contextPath}/assets/home/img/phim.png" />
@@ -23,7 +24,7 @@
 	href="${pageContext.request.contextPath}/assets/home/css/owl.carousel.css">
 <!-- Popup CSS -->
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/assets/css/magnific-popup.css">
+	href="${pageContext.request.contextPath}/assets/home/css/magnific-popup.css">
 <!-- Main style CSS -->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/home/css/style.css"
@@ -32,6 +33,25 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/home/css/responsive.css"
 	media="all" />
+
+
+<!-- Bootstrap Material Datetime Picker Css -->
+<link
+	href="${pageContext.request.contextPath}/assets/admin/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+	rel="stylesheet" />
+
+<link
+	href="${pageContext.request.contextPath}/assets/admin/plugins/sweetalert/sweetalert.css"
+	rel="stylesheet" />
+<!-- Bootstrap DatePicker Css -->
+<link
+	href="${pageContext.request.contextPath}/assets/admin/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css"
+	rel="stylesheet" />
+
+<!-- Morris Chart Css-->
+<link
+	href="${pageContext.request.contextPath}/assets/admin/plugins/morrisjs/morris.css"
+	rel="stylesheet" />
 <!-- custom layout -->
 
 <link rel="stylesheet" type="text/css"

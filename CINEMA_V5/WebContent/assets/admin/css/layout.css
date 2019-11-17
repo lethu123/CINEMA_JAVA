@@ -2,9 +2,21 @@
 	width: 200px;
 	height: 150px;
 }
-.td_img > img {
+
+.td_img>img {
 	width: 100%;
 	height: 100%;
+}
+
+.img_avatar {
+	width: 255px;
+	height: 260px;
+}
+
+.img_avatar>img {
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
 }
 
 /* .js-basic-example > thead > tr > th {
@@ -16,3 +28,50 @@
     border-radius: 4px !important;
 }
  */
+.forms input {
+	background: transparent;
+	color: white;
+}
+
+.forms h2 {
+	color: white;
+}
+
+.forms input::placeholder {
+	color: #555;
+}
+
+.homelogin {
+	background: url(../../../assets/admin/images/blur-bg.jpg) !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+}
+
+.forms {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%); width : 540px;
+	margin: 0 auto;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, .55);
+	color: #fff;
+	padding: 32px;
+	width: 540px;
+}
+
+.forms .btn_login {
+	background: #337ab7 !important;
+	/* border: 1px solid white !important; */
+	border-radius: 20px !important;
+}
+
+.forms .btn_login:hover {
+	color: white !important;
+	letter-spacing: 10px;
+}
+
+.forms .error {
+	margin-top: 8px;
+	color: yellow;
+}

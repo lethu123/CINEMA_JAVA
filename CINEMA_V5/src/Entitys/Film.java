@@ -1,10 +1,13 @@
 package Entitys;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -47,6 +50,28 @@ public class Film {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	private Date update_at;
+
+	public Collection<Showtime> getShowtimes() {
+		return showtimes;
+	}
+
+	public void setShowtimes(Collection<Showtime> showtimes) {
+		this.showtimes = showtimes;
+	}
+
+	public Collection<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Collection<Comment> comments) {
+		this.comments = comments;
+	}
+
+	@OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
+	private Collection<Showtime> showtimes;
+
+	@OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
+	private Collection<Comment> comments;
 
 	public Integer getId() {
 		return id;

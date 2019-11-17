@@ -91,6 +91,9 @@
 <!-- TinyMCE -->
 <script
 	src="${pageContext.request.contextPath}/assets/admin/plugins/tinymce/tinymce.js"></script>
+
+<!-- SweetAlert Plugin Js -->
+<script src="${pageContext.request.contextPath}/assets/admin/plugins/sweetalert/sweetalert.min.js"></script>
 <!-- Custom Js -->
 <script
 	src="${pageContext.request.contextPath}/assets/admin/js/admin.js"></script>
@@ -100,5 +103,32 @@
 <!-- Demo Js -->
 <script src="${pageContext.request.contextPath}/assets/admin/js/demo.js"></script>
 
+
+<script>
+	$(document).ready(
+		function() {
+			var pathname = window.location.pathname;
+			var list = [
+			            "/CINEMA_V5/admin/account",
+			            "/CINEMA_V5/admin/film",
+			            "/CINEMA_V5/admin/account/insert",
+			            "/CINEMA_V5/admin/film/insert"
+			       ]
+			list.forEach(function(e){
+				if(pathname == e) {
+					$.post(
+						'${pageContext.request.contextPath}/checkLogin',
+						{}, function(res) {
+							
+							/* if(res != "true") {
+								console.log(res);
+								window.location.replace("http://localhost:8080/CINEMA_V5/admin");
+							} */
+							
+						});
+				} 
+			})
+		})
+</script>
 
 

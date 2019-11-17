@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Moviepoint - Online Movie,Vedio and TV Show HTML Template</title>
+<title>BHD CINEMA</title>
 <!-- Favicon Icon -->
 <jsp:include page="layouts/header.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css"
@@ -33,12 +33,11 @@
 
 	<jsp:include page="layouts/navbar.jsp"></jsp:include>
 
-
 	<!-- hero area start -->
 	<section class="hero-area" id="home">
 		<div class="container">
 			<div class="hero-area-slider">
-				<c:forEach var="film" items="${listFilm1 }">
+				<c:forEach var="film" items="${listFilmCarousel }">
 					<div class="row hero-area-slide">
 						<div class="col-lg-6 col-md-5">
 							<div class="hero-area-content">
@@ -58,12 +57,7 @@
 									</div>
 									<h4>180k voters</h4>
 								</div>
-								<%-- <p>
-									${film.describe}
-								</p> --%>
-								<p>She is a devil princess from the demon world. She grew up
-									sheltered by her parents and doesn't really know how to be evil
-									or any of the common actions, She is unable to cry due ...</p>
+								<p>${film.describe}</p>
 
 								<div class="slide-trailor">
 									<h3>Watch Trailer</h3>
@@ -80,7 +74,9 @@
 					<div class="row hero-area-slide">
 						<div class="col-lg-6">
 							<div class="hero-area-content">
-								<img src="${pageContext.request.contextPath}/assets/home/img/slide3.png" alt="about" />
+								<img
+									src="${pageContext.request.contextPath}/assets/home/img/slide3.png"
+									alt="about" />
 							</div>
 						</div>
 						<div class="col-lg-6">
@@ -112,7 +108,9 @@
 					<div class="row hero-area-slide">
 						<div class="col-lg-6">
 							<div class="hero-area-content">
-								<img src="${pageContext.request.contextPath}/assets/home/img/slide1.png" alt="about" />
+								<img
+									src="${pageContext.request.contextPath}/assets/home/img/slide1.png"
+									alt="about" />
 							</div>
 						</div>
 						<div class="col-lg-6">
@@ -131,7 +129,7 @@
 								<p>She is a devil princess from the demon world. She grew up
 									sheltered by her parents and doesn't really know how to be evil
 									or any of the common actions, She is unable to cry due to...</p>
-								
+
 								<div class="slide-trailor">
 									<h3>Watch Trailer</h3>
 									<a class="theme-btn theme-btn2" href="#"><i
@@ -145,6 +143,7 @@
 		</div>
 	</section>
 	<!-- hero area end -->
+
 	<!-- portfolio section start -->
 	<section class="portfolio-area pt-60">
 		<div class="container">
@@ -171,9 +170,9 @@
 			<hr />
 			<div class="row">
 				<div class="col-lg-9">
-					<div class="row portfolio-item">
+					<div class="row ">
 						<c:forEach var="film" items="${listFilm2 }">
-							<div class="col-md-4 col-sm-6">
+							<div class="col-md-4 col-sm-6" >
 								<div class="single-portfolio">
 									<div class="single-portfolio-img">
 										<img src="${film.image_film }" alt="portfolio" /> <a
@@ -254,9 +253,9 @@
 			<hr />
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="row portfolio-item">
+					<div class="row ">
 						<c:forEach var="film" items="${listFilm1 }">
-							<div class="col-md-3 col-sm-6">
+							<div class="col-md-3 col-sm-6" >
 								<div class="single-portfolio">
 									<div class="single-portfolio-img">
 										<img src="${film.image_film }" alt="portfolio" /> <a
@@ -290,9 +289,9 @@
 		</div>
 	</section>
 	<!-- portfolio section end -->
-	
+
 	<!-- news section start -->
-	<section class="news" style="margin-top:35px" id="news">
+	<section class="news" style="margin-top: 35px" id="news">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">

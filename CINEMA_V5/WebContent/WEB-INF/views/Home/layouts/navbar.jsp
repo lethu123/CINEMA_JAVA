@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -7,15 +8,18 @@
 	<div class="container">
 		<div class="header-area">
 			<div class="logo">
-				<a href="index-2.html"><img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="logo" /></a>
+				<a href="index-2.html"><img
+					src="${pageContext.request.contextPath}/assets/home/img/logo.png"
+					alt="logo" /></a>
 			</div>
 			<div class="header-right">
 				<form action="#">
-					<select>
-						<option value="Movies">Phim</option>
-						<option value="Movies">Phim</option>
-						<option value="Movies">Phim</option>
-					</select> <input type="text" />
+				<!-- <a href="#" data-lang="en">English</a> -->
+					<select id="select">
+						<option value="Moviess" selected data-lang="vi" style="display:none">Ngôn ngữ</option>
+						<option value="Movies" data-lang="vi">Tiếng Việt</option>
+						<option value="Movie" data-lang="en">English</option>
+					</select> <input type="text" /> 
 					<button>
 						<i class="icofont icofont-search"></i>
 					</button>
@@ -23,13 +27,15 @@
 				<ul>
 
 					<c:choose>
-						<c:when test="{userLogin} == 'lethu'">
-							<li><a href="#">Xin chào, {userLogin}</a></li>
+						<c:when test="${sessionScope.userLogin.getUsername() != null}">
+							<li><a href="#" data-toggle="tooltip" title="Xem chi tiết">Xin chào, ${sessionScope.userLogin.getUsername()}</a></li>
+							<li><a id="logout" href="${pageContext.request.contextPath}/logout"><i class="icofont icofont-logout"></i> Đăng xuất</a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a class="login-popup" href="#">Đăng nhập</a></li>
+							<li><a id="btn-dangnhap" class="theme-btn" href="${pageContext.request.contextPath}/login">Đăng nhập / Đăng kí</a></li>
 						</c:otherwise>
 					</c:choose>
+					
 
 				</ul>
 			</div>
@@ -37,53 +43,39 @@
 				<div class="responsive-menu"></div>
 				<div class="mainmenu">
 					<ul id="primary-menu">
-						<li><a class="active" href="${pageContext.request.contextPath}/">TRANG CHỦ</a></li>
-						<li><a href="${pageContext.request.contextPath}/movie-playing">PHIM ĐANG CHIẾU</a></li>
-						<li><a href="${pageContext.request.contextPath}/movie-commingsoon">PHIM SẮP CHIẾU</a></li>
-						<li><a href="${pageContext.request.contextPath}/#news">TIN TỨC</a></li>
-						<li><a href="#contact">LIÊN HỆ</a></li>
-						<li><a href="#">LỊCH CHIẾU <i
+						<li><a class="active"
+							href="${pageContext.request.contextPath}/"><s:message
+									code="lable.home" /> </a></li>
+
+						<li><a
+							href="${pageContext.request.contextPath}/movie-playing"><s:message
+									code="lable.movie_playing" /></a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/movie-commingsoon"><s:message
+									code="lable.movie_coming_soon" /></a></li>
+						<li><a href="${pageContext.request.contextPath}/#news"><s:message
+									code="lable.news" /></a></li>
+						<li><a href="${pageContext.request.contextPath}/history"><s:message code="lable.contact" /></a></li>
+						<li><a href="#"><s:message code="lable.showtime" /> <i
 								class="icofont icofont-simple-down"></i></a>
 							<ul>
-								<li><a href="blog-details.html">Lịch chiếu theo ngày</a></li>
-								<li><a href="movie-details.html">Lịch chiếu theo phim</a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/showtimedate"><s:message
+											code="lable.showtime_date" /> </a></li>
+								<li><a
+									href="${pageContext.request.contextPath}/showtimefilm"><s:message
+											code="lable.showtime_film" /> </a></li>
 							</ul></li>
-						<li><a class="theme-btn" href="#"><i
-								class="icofont icofont-ticket"></i> Mua vé</a></li>
+						<!-- <li><a class="theme-btn" href="#"><i
+								class="icofont icofont-ticket"></i> Mua vé</a></li> -->
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 </header>
-<div class="login-area">
-	<div class="login-box">
-		<a href="#"><i class="icofont icofont-close"></i></a>
-		<h2>ĐĂNG NHẬP</h2>
-		<form action="${pageContext.request.contextPath}/" method="post">
-			<h6>Tên đăng nhập hoặc email</h6>
-			<input type="text" class="form-control" name="username" />
-			<h6>Mật khẩu</h6>
-			<input type="text" class="form-control" name="password" />
-			<div class="login-remember">
-				<input type="checkbox" /> <span>Nhớ mật khẩu</span>
-			</div>
-			<div class="login-signup">
-				<span>Đăng kí</span>
-			</div>
-			<button class="theme-btn" type="submit">Đăng nhập</button>
-			<span>Mạng xã hội</span>
-			<div class="login-social">
-				<a href="#"><i class="icofont icofont-social-facebook"></i></a> <a
-					href="#"><i class="icofont icofont-social-twitter"></i></a> <a
-					href="#"><i class="icofont icofont-social-linkedin"></i></a> <a
-					href="#"><i class="icofont icofont-social-google-plus"></i></a> <a
-					href="#"><i class="icofont icofont-camera"></i></a>
-			</div>
-		</form>
 
-	</div>
-</div>
+
 <div class="buy-ticket">
 	<div class="container">
 		<div class="buy-ticket-area">

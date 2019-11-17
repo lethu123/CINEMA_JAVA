@@ -24,4 +24,18 @@ $(document).ready(function() {
 			targets : 5
 		}]
 	});
+	
+	$('#js-basic-example_account').DataTable({
+		// responsive : true,
+		pageLength : 10,
+		lengthChange : false,
+//		autoWidth : true,
+	});
+	
+	$('#js-basic-example_showtime').DataTable({
+		// responsive : true,
+		pageLength : 10,
+		lengthChange : false,
+//		autoWidth : true,
+	});
 })
