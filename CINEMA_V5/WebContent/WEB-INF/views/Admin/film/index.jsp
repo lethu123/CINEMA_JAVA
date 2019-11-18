@@ -55,7 +55,8 @@
 		<div class="container-fluid">
 			<div class="block-header">
 				<h2>
-					<s:message code="lable.m_film" />
+<%-- 					<s:message code="lable.m_film" /> --%>
+						Quản lí phim
 				</h2>
 			</div>
 			<!-- Basic Examples -->
@@ -64,7 +65,8 @@
 					<div class="card">
 						<div class="header">
 							<h2>
-								<s:message code="lable.list_film" />
+<%-- 								<s:message code="lable.list_film" /> --%>
+								Danh sách phim
 							</h2>
 							<ul class="header-dropdown m-r--5">
 								<li class="dropdown"><a href="javascript:void(0);"
@@ -83,7 +85,8 @@
 							<div class="row">
 								<div class="col-sm-12" style="margin-bottom: 0 !important">
 									<p>
-										<s:message code="lable.new" />
+<%-- 										<s:message code="lable.new" /> --%>
+										Thêm mới
 									</p>
 									<a class="btn btn-simple   btn-primary btn-icon  "
 										href="${pageContext.request.contextPath}/admin/film/insert">
@@ -97,11 +100,16 @@
 									cellspacing="0">
 									<thead>
 										<tr>
-											<th><s:message code="lable.image" /></th>
-											<th><s:message code="lable.name_film" /></th>
-											<th><s:message code="lable.describe" /></th>
-											<th><s:message code="lable.release" /></th>
-											<th><s:message code="lable.type_film" /></th>
+<%-- 											<th><s:message code="lable.image" /></th> --%>
+<%-- 											<th><s:message code="lable.name_film" /></th> --%>
+<%-- 											<th><s:message code="lable.describe" /></th> --%>
+<%-- 											<th><s:message code="lable.release" /></th> --%>
+<%-- 											<th><s:message code="lable.type_film" /></th> --%>
+												<th>Hình ảnh</th>
+												<th>Tên phim</th>
+												<th>Mô tả</th>
+												<th>Ngày công chiếu</th>
+												<th>Loại phim</th>
 											<th style="with: 200px !important"><s:message
 													code="lable.action" /></th>
 										</tr>

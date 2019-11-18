@@ -127,7 +127,7 @@
 													href="${pageContext.request.contextPath}/admin/account/update/${account.username}">
 														<i class="material-icons">edit</i>
 												</a>
-													<button class="btn btn-simple  btn-danger btn-icon  remove"
+													<button class="btn btn-simple  btn-danger btn-icon  remove" ${account.permission == 1 ? 'disabled' : '' }
 														type="button" onclick="onDelete('${account.username}')">
 														<i class="material-icons">delete</i>
 													</button></td>

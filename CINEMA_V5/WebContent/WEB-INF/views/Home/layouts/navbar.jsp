@@ -16,7 +16,7 @@
 				<form action="#">
 				<!-- <a href="#" data-lang="en">English</a> -->
 					<select id="select">
-						<option value="Moviess" selected data-lang="vi" style="display:none">Ngôn ngữ</option>
+						<option value="Moviess" selected data-lang="vi" style="display:none"><s:message code="lable.lan" /></option>
 						<option value="Movies" data-lang="vi">Tiếng Việt</option>
 						<option value="Movie" data-lang="en">English</option>
 					</select> <input type="text" /> 
@@ -28,11 +28,11 @@
 
 					<c:choose>
 						<c:when test="${sessionScope.userLogin.getUsername() != null}">
-							<li><a href="#" data-toggle="tooltip" title="Xem chi tiết">Xin chào, ${sessionScope.userLogin.getUsername()}</a></li>
-							<li><a id="logout" href="${pageContext.request.contextPath}/logout"><i class="icofont icofont-logout"></i> Đăng xuất</a></li>
+							<li><a href="${pageContext.request.contextPath}/detailUser/${sessionScope.userLogin.getUsername()}" data-toggle="tooltip" title="Xem chi tiết"><s:message code="lable.hello" /> , ${sessionScope.userLogin.getUsername()}</a></li>
+							<li><a id="logout" href="${pageContext.request.contextPath}/logout"><i class="icofont icofont-logout"></i> <s:message code="lable.logout"/></a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a id="btn-dangnhap" class="theme-btn" href="${pageContext.request.contextPath}/login">Đăng nhập / Đăng kí</a></li>
+							<li><a id="btn-dangnhap" class="theme-btn" href="${pageContext.request.contextPath}/login"><s:message code="lable.login"/>  /  <s:message code="lable.register"/> </a></li>
 						</c:otherwise>
 					</c:choose>
 					

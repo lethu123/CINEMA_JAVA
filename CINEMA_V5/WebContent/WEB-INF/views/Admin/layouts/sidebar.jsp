@@ -39,13 +39,16 @@
 					href="${pageContext.request.contextPath}/admin/film"> <i
 						class="material-icons">movie</i> <span>Quản lí phim</span>
 				</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/showtime">
+				
+				<%-- <li><a href="${pageContext.request.contextPath}/admin/showtime">
 						<i class="material-icons">today</i> <span>QL Lịch chiếu</span>
-				</a></li>
+				</a></li> --%>
+				
 				<li><a href="${pageContext.request.contextPath}/admin/account">
 						<i class="material-icons">account_box</i><span>QL Tài khoản</span>
 				</a></li>
-				<li><a href="javascript:void(0);" class="menu-toggle"> <i
+				
+				<%-- <li><a href="javascript:void(0);" class="menu-toggle"> <i
 						class="material-icons">widgets</i> <span>Booking</span>
 				</a>
 					<ul class="ml-menu">
@@ -55,10 +58,11 @@
 						<li><a
 							href="${pageContext.request.contextPath}/admin/booking"> <span>QL
 									Đặt vé</span></a></li>
-					</ul></li>
+					</ul></li> 
+					
 				<li><a href="${pageContext.request.contextPath}/admin/combo">
 						<i class="material-icons">shopping_cart</i> <span>QL Combo</span>
-				</a></li>
+				</a></li> --%>
 
 			</ul>
 		</div>

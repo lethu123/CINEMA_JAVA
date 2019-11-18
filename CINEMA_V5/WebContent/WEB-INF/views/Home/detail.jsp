@@ -48,27 +48,27 @@
 					<div class="col-lg-7">
 						<div class="transformers-content">
 							<h2>${filmDetail.name}</h2>
-							<p>Phim 2D | Chất lượng cao</p>
+							<p><s:message code="lable.film" /> 2D | <s:message code="lable.high_quality" /></p>
 							<ul>
 								<li>
-									<div class="transformers-left">Nhà sản xuất:</div>
+									<div class="transformers-left"><s:message code="lable.producer" />:</div>
 									<div class="transformers-right">${filmDetail.producer}</div>
 								</li>
 								<li>
-									<div class="transformers-left">Diễn viên:</div>
+									<div class="transformers-left"><s:message code="lable.actor" />:</div>
 									<div class="transformers-right">${filmDetail.actor}</div>
 								</li>
 
 								<li>
-									<div class="transformers-left">Thời lượng:</div>
+									<div class="transformers-left"><s:message code="lable.duration" />:</div>
 									<div class="transformers-right">${filmDetail.duration}m</div>
 								</li>
 								<li>
-									<div class="transformers-left">Khởi chiếu:</div>
+									<div class="transformers-left"><s:message code="lable.release" />:</div>
 									<div class="transformers-right">${filmDetail.release}</div>
 								</li>
 								<li>
-									<div class="transformers-left">Đánh giá:</div>
+									<div class="transformers-left"><s:message code="lable.evaluate" />:</div>
 									<div class="transformers-right" style="color: #fece50;">
 										<c:forEach begin="0" end="${filmDetail.evaluate }">
 											<i class="icofont icofont-star"></i>
@@ -77,7 +77,7 @@
 
 								</li>
 								<li>
-									<div class="transformers-left">Rạp phim:</div>
+									<div class="transformers-left"><s:message code="lable.cinema" />:</div>
 									<div class="transformers-right">BHD Lê Văn Việt - Quận 9</div>
 								</li>
 								<li>
@@ -93,8 +93,6 @@
 						</div>
 					</div>
 				</div>
-				<a href="#" class="theme-btn"><i class="icofont icofont-ticket"></i>
-					BUY TICKET</a>
 			</div>
 		</div>
 	</section>
@@ -106,11 +104,11 @@
 				<div class="col-lg-12">
 					<div class="details-content">
 						<div class="details-overview">
-							<h2>Tổng quan</h2>
+							<h2><s:message code="lable.summary" /></h2>
 							<p>${filmDetail.describe}</p>
 						</div>
 						<div class="details-reply">
-							<h2>Bình luận</h2>
+							<h2><s:message code="lable.comment" /></h2>
 							<form action="#">
 								<div class="row">
 									<div class="col-lg-12">
@@ -118,7 +116,7 @@
 											<textarea placeholder="Thêm bình luận của bạn"></textarea>
 										</div>
 										<div class="details-comment">
-											<button class="theme-btn theme-btn2">Post Comment</button>
+											<button class="theme-btn theme-btn2"><s:message code="lable.send"/></button>
 										</div>
 									</div>
 								</div>

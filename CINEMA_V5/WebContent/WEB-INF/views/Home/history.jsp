@@ -16,9 +16,6 @@
 <title>BHD CINEMA</title>
 <!-- Favicon Icon -->
 <jsp:include page="layouts/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/assets/home/css/layout.css"
-	media="all" />
 
 
 <!--[if lt IE 9]>
@@ -63,7 +60,7 @@
 								<c:if test="${!empty listItem}">
 									<div class="buy-ticket-box mtr-30">
 										<h4>Chi tiết vé</h4>
-										<ul lass="ulTicket">
+										<ul class="ulTicket">
 											<li>
 												<p>Địa chỉ</p> <span>BHD QUẬN 9</span>
 											</li>

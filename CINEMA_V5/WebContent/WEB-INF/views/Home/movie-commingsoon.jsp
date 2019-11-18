@@ -44,7 +44,7 @@
 				<div class="col-lg-12">
 					<div class="section-title pb-20">
 						<h1>
-							<i class="icofont icofont-film"></i> Phim sắp chiếu
+							<i class="icofont icofont-film"></i> <s:message code="lable.movie_coming_soon_1"/>
 						</h1>
 					</div>
 				</div>
@@ -65,14 +65,14 @@
 												${film.name }</a></h3>
 								<div class="review">
 									<div class="author-review">
-										<span style="color: #b6b7b9;"> Đánh giá: </span>
+										<span style="color: #b6b7b9;"> <s:message code="lable.evaluate"/>: </span>
 										<c:forEach begin="0" end="${film.evaluate }">
 											<i class="icofont icofont-star"></i>
 										</c:forEach>
 									</div>
 
 								</div>
-								<p>Thời lượng: ${film.duration } m</p>
+								<p><s:message code="lable.view"/>: ${film.duration } m</p>
 								
 							</div>
 

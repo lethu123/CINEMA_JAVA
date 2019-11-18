@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import Daos.AccountDAO;
 import Daos.BookingDAO;
 import Daos.FilmDAO;
 import Daos.ShowtimeDAO;
@@ -45,6 +46,8 @@ public class HomeController {
 	BookingDAO bookingDao;
 	@Autowired
 	TicketDAO ticketDao;
+	@Autowired
+	AccountDAO accountDao;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(ModelMap model, Account account, HttpServletRequest request) {
@@ -87,6 +90,14 @@ public class HomeController {
 		film = filmDao.getDetailFilm(id);
 		model.addAttribute("filmDetail", film);
 		return "Home/detail";
+	}
+	
+	@RequestMapping(value = "detailUser/{username}", method = RequestMethod.GET)
+	public String detailUser(ModelMap model, @PathVariable("username") String username) {
+		Account account = new Account();
+		account = accountDao.getDetail(username);
+		model.addAttribute("userDetail", account);
+		return "Home/userDetail";
 	}
 
 	@RequestMapping(value = "movie-playing", method = RequestMethod.GET)

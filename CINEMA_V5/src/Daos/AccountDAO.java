@@ -54,7 +54,6 @@ public class AccountDAO {
 
 	// get detail account by email
 	public Account getByEmail(String email) {
-		Account account = null;
 		System.out.print(email);
 		Session session = factory.getCurrentSession();
 		String hql = "FROM Account u WHERE u.email = :email";
@@ -69,7 +68,6 @@ public class AccountDAO {
 
 	// get login
 	public Account login(String username, String password) {
-		Account account = null;
 		Session session = factory.getCurrentSession();
 		String hql = "FROM Account u WHERE u.username = :username AND u.password = :password";
 		Query query = session.createQuery(hql);
@@ -84,7 +82,6 @@ public class AccountDAO {
 	
 	// get login ad
 		public Account loginAD(String username, String password) {
-			Account account = null;
 			Session session = factory.getCurrentSession();
 			String hql = "FROM Account u WHERE u.username = :username AND u.password = :password AND u.permission ='1'";
 			Query query = session.createQuery(hql);

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Daos.AccountDAO;
+import Daos.Mailer;
 import Entitys.Account;
 import Entitys.Film;
 import Models.FilmSession;
@@ -25,6 +26,8 @@ import Models.Notify;
 public class LoginController {
 	@Autowired
 	AccountDAO accountDao;
+	@Autowired
+	Mailer mailer;
 
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
@@ -54,15 +57,14 @@ public class LoginController {
 				return "login/home";
 			} else {
 				Account _account = accountDao.login(account.getUsername(), account.getPassword());
-				System.out.println("fullname...." +_account.getFullname());
+				System.out.println("fullname...." + _account.getFullname());
 				session.setAttribute("userLogin", _account);
 				return "redirect:/";
 			}
 		}
 
 	}
-	
-	
+
 	// login admin
 	@RequestMapping(value = "admin", method = RequestMethod.GET)
 	public String loginAD(ModelMap model) {
@@ -71,10 +73,10 @@ public class LoginController {
 		model.addAttribute("detailAccount", account);
 		return "login/admin";
 	}
-	
+
 	@RequestMapping(value = "admin", method = RequestMethod.POST)
-	public String loginValidationAD(HttpSession session, ModelMap model, @ModelAttribute("detailAccount") Account account,
-			BindingResult errors) {
+	public String loginValidationAD(HttpSession session, ModelMap model,
+			@ModelAttribute("detailAccount") Account account, BindingResult errors) {
 		if (account.getUsername().trim().length() == 0) {
 			errors.rejectValue("username", "account", "Vui lòng không để trống username!");
 		}
@@ -92,7 +94,7 @@ public class LoginController {
 				return "login/admin";
 			} else {
 				Account _account = accountDao.loginAD(account.getUsername(), account.getPassword());
-				System.out.println("fullname...." +_account.getFullname());
+				System.out.println("fullname...." + _account.getFullname());
 				session.setAttribute("userLoginAD", _account);
 				return "redirect:/admin/film";
 			}
@@ -142,11 +144,12 @@ public class LoginController {
 		}
 
 	}
-	
-	// flash login 
+
+	// flash login
 	@RequestMapping("flashLogin")
 	@ResponseBody
-	public Notify flashLogin(HttpSession session, @RequestParam("username") String username, @RequestParam("password") String password){
+	public Notify flashLogin(HttpSession session, @RequestParam("username") String username,
+			@RequestParam("password") String password) {
 		if (accountDao.login(username, password) == null) {
 			return new Notify(1, "Tên đăng nhập hoặc mật khẩu không đúng");
 		} else {
@@ -155,62 +158,88 @@ public class LoginController {
 			return new Notify(0, _account.getUsername());
 		}
 	}
-	
+
 	// logout
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		// remove all session
-		
+
 		FilmSession _film_Session = (FilmSession) session.getAttribute("listFilm");
 		if (_film_Session != null) {
 			session.removeAttribute("listFilm");
 		}
-		
+
 		Account account = (Account) session.getAttribute("userLogin");
 		if (account != null) {
 			session.removeAttribute("userLogin");
 		}
-		
+
 		// show film by day
 		String day = (String) session.getAttribute("chooseDay");
 		if (day != null) {
 			session.removeAttribute("chooseDay");
 		}
-		
+
 		// show time by film
 		Film film = (Film) session.getAttribute("nameFilm");
 		if (film != null) {
 			session.removeAttribute("nameFilm");
 		}
-		
+
 		HourSession listHour = (HourSession) session.getAttribute("listHour");
 		if (listHour != null) {
 			session.removeAttribute("listHour");
 		}
-		
+
 		return "redirect:/";
-		
+
 	}
-	
+
 	// logout ADMIN
-		@RequestMapping("logoutAD")
-		public String logoutAD(HttpSession session) {
-			Account account = (Account) session.getAttribute("userLoginAD");
-			if (account != null) {
-				session.removeAttribute("userLoginAD");
-			}
-			return "redirect:/admin";
+	@RequestMapping("logoutAD")
+	public String logoutAD(HttpSession session) {
+		Account account = (Account) session.getAttribute("userLoginAD");
+		if (account != null) {
+			session.removeAttribute("userLoginAD");
 		}
-		
-		// check login admin
-		@RequestMapping("checkLogin")
-		@ResponseBody
-		public Boolean checkLogin(HttpSession session){
-			Account account = (Account) session.getAttribute("userLoginAD");
-			if (account != null) {
-				return true;
-			}
+		return "redirect:/admin";
+	}
+
+	// check login admin
+	@RequestMapping("checkLogin")
+	@ResponseBody
+	public Boolean checkLogin(HttpSession session) {
+		Account account = (Account) session.getAttribute("userLoginAD");
+		if (account != null) {
 			return true;
 		}
+		return true;
+	}
+
+	@RequestMapping(value = "forgotPassword", method = RequestMethod.GET)
+	public String forgetPass(ModelMap model) {
+
+		return "login/forgetPassword";
+	}
+
+	// @SuppressWarnings("unused")
+	@ResponseBody
+	@RequestMapping(value = "forgotPassword", method = RequestMethod.POST)
+	public Notify sendEmail(ModelMap model, @RequestParam("email") String email) {
+		Account account = accountDao.getByEmail(email);
+		if (account != null) {
+			String from = "thukara2016@gmail.com";
+			String subject = "RESET PASSWORD";
+			String body = "password của bạn là: 123";
+			String passReset = "123";
+			account.setPassword(passReset);
+			accountDao.createOrUpdate(account);
+			mailer.send(from, email, subject, body);
+			return new Notify(0, "Vui lòng kiểm tra email để nhận password");
+
+		}
+		return new Notify(1, "Email không tồn tại vui lòng kiểm tra lại!");
+
+	}
 
 }

@@ -151,7 +151,7 @@
 				<div class="col-lg-6 text-center text-lg-left">
 					<div class="section-title">
 						<h1>
-							<i class="icofont icofont-movie"></i> Phim sắp chiếu
+							<i class="icofont icofont-movie"></i> <s:message code="lable.movie_coming_soon_1" /> 
 						</h1>
 					</div>
 				</div>
@@ -188,14 +188,14 @@
 										</h2>
 										<div class="review">
 											<div class="author-review">
-												<span style="color: #b6b7b9;"> Đánh giá: </span>
+												<span style="color: #b6b7b9;"> <s:message code="lable.evaluate"/>: </span>
 												<c:forEach begin="0" end="${film.evaluate }">
 													<i class="icofont icofont-star"></i>
 												</c:forEach>
 											</div>
 										</div>
 										<br>
-										<p>Lượt xem: 180k voters</p>
+										<p><s:message code="lable.view"/>: 180k voters</p>
 									</div>
 								</div>
 							</div>
@@ -206,8 +206,7 @@
 					<div style="margin-top: 48px; font-size: 22px"
 						class="text-lg-left text-center">
 						<i class="icofont icofont-bars"
-							style="font-size: 35px; color: #fece50; margin-right: 5px"></i>Top
-						phim
+							style="font-size: 35px; color: #fece50; margin-right: 5px"></i><s:message code="lable.top"/>
 					</div>
 					<hr>
 					<div class="portfolio-sidebar">
@@ -218,12 +217,12 @@
 								</div>
 								<div class="info_film">
 									<p>
-										Phim: <a
+										<s:message code="lable.film"/>: <a
 											href="${pageContext.request.contextPath}/detail/${film.id}">
 											${film.name }</a>
 									</p>
 									<p>
-										Đánh giá: ${film.evaluate } <i class="icofont icofont-star"
+										<s:message code="lable.evaluate"/>: ${film.evaluate } <i class="icofont icofont-star"
 											style="color: #fece50;"></i>
 									</p>
 								</div>
@@ -244,7 +243,7 @@
 				<div class="col-lg-6 text-center text-lg-left">
 					<div class="section-title">
 						<h1>
-							<i class="icofont icofont-movie"></i> Phim đang chiếu
+							<i class="icofont icofont-movie"></i> <s:message code="lable.movie_playing_1" />
 						</h1>
 					</div>
 				</div>
@@ -271,14 +270,14 @@
 										</h2>
 										<div class="review">
 											<div class="author-review">
-												<span style="color: #b6b7b9;"> Đánh giá: </span>
+												<span style="color: #b6b7b9;"> <s:message code="lable.evaluate"/>: </span>
 												<c:forEach begin="0" end="${film.evaluate }">
 													<i class="icofont icofont-star"></i>
 												</c:forEach>
 											</div>
 										</div>
 										<br>
-										<p>Lượt xem: 180k voters</p>
+										<p><s:message code="lable.view"/>: 180k voters</p>
 									</div>
 								</div>
 							</div>
@@ -297,7 +296,7 @@
 				<div class="col-lg-12">
 					<div class="section-title pb-20">
 						<h1>
-							<i class="icofont icofont-coffee-cup"></i> Tin mới
+							<i class="icofont icofont-coffee-cup"></i> <s:message code="lable.news_1"/>
 						</h1>
 					</div>
 				</div>
