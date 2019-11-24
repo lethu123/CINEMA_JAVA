@@ -72,7 +72,7 @@
 								</div>
 								<div class="col-lg-4">
 									<button class="btn btn-success">
-										<s:message code="lable.view" />
+										<s:message code="lable._view" />
 									</button>
 								</div>
 							</div>

@@ -33,10 +33,6 @@ public class FilmController {
 	@Autowired
 	FilmDAO filmDao;
 
-//	Films films;
-//	Film film;
-
-	// @Autowired
 
 	@RequestMapping(value = "film", method = RequestMethod.GET)
 	public String index(ModelMap model,  HttpServletRequest request) {
@@ -72,7 +68,7 @@ public class FilmController {
 	// update
 	@RequestMapping(value = "film/update", method = RequestMethod.POST)
 	public String update(@ModelAttribute("filmDetail") Film film, @RequestParam("_trailer") String trailler,
-			@RequestParam("_is_show") Boolean is_show, BindingResult errors) {
+			@RequestParam(value="_is_show", required = false) String is_show, BindingResult errors) {
 
 		if (film.getName().trim().length() == 0) {
 			errors.rejectValue("name", "film", "Vui lòng nhập tên phim");
@@ -91,7 +87,13 @@ public class FilmController {
 			errors.rejectValue("name", "film", "Vui lòng nhập trùng tên phim");
 		}
 
-		film.setIs_show(is_show);
+
+		if (is_show != null) {
+			film.setIs_show(true);
+		} else {
+			film.setIs_show(false);
+		}
+		
 		film.setUpdate_at(new Date());
 		if (film.getTrailer().trim().length() == 0) {
 			if (trailler.trim().length() != 0) {
@@ -132,7 +134,7 @@ public class FilmController {
 	// insert
 	@RequestMapping(value = "film/insert", method = RequestMethod.POST)
 	public String insert(@ModelAttribute("filmDetail") Film film, @RequestParam("_trailer") String trailler,
-			@RequestParam("_is_show") Boolean is_show, BindingResult errors) {
+			@RequestParam(value="_is_show", required = false) String is_show, BindingResult errors) {
 
 		if (film.getName().trim().length() == 0) {
 			errors.rejectValue("name", "film", "Vui lòng nhập tên phim");
@@ -156,8 +158,12 @@ public class FilmController {
 		if ( filmDao.getlFilmByName(film.getName()) != null) {
 			errors.rejectValue("name", "film", "Vui lòng nhập trùng tên phim");
 		}
-
-		film.setIs_show(is_show);
+		
+		if (is_show != null) {
+			film.setIs_show(true);
+		} else {
+			film.setIs_show(false);
+		}
 		film.setCreate_at(new Date());
 		if (film.getTrailer().trim().length() == 0) {
 			if (trailler.trim().length() != 0) {

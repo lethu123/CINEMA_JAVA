@@ -47,6 +47,9 @@
 				<li><a href="${pageContext.request.contextPath}/admin/account">
 						<i class="material-icons">account_box</i><span>QL Tài khoản</span>
 				</a></li>
+				 <li><a href="${pageContext.request.contextPath}/admin/typeticket">
+						<i class="material-icons">movie</i> <span>QL Loại vé</span>
+				</a></li> 
 				
 				<%-- <li><a href="javascript:void(0);" class="menu-toggle"> <i
 						class="material-icons">widgets</i> <span>Booking</span>
@@ -58,11 +61,11 @@
 						<li><a
 							href="${pageContext.request.contextPath}/admin/booking"> <span>QL
 									Đặt vé</span></a></li>
-					</ul></li> 
+					</ul></li>  --%>
 					
 				<li><a href="${pageContext.request.contextPath}/admin/combo">
 						<i class="material-icons">shopping_cart</i> <span>QL Combo</span>
-				</a></li> --%>
+				</a></li> 
 
 			</ul>
 		</div>

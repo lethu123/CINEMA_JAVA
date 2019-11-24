@@ -27,10 +27,25 @@ public class BookingDAO {
 	@Autowired
 	SessionFactory factory;
 
-	public List<TypeTicket> getListTicket() {
+	public List<TypeTicket> getListTickets() {
 		Session session = factory.getCurrentSession();
 		try {
 			String sql = "FROM TypeTicket";
+			Query query = session.createQuery(sql);
+			List<TypeTicket> listTicket = query.list();
+			return listTicket;
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.print("eror get list type ticket");
+		}
+		return new ArrayList<>();
+	}
+	
+	public List<TypeTicket> getListTicket() {
+		Session session = factory.getCurrentSession();
+		try {
+			String sql = "FROM TypeTicket where available = 'true'";
 			Query query = session.createQuery(sql);
 			List<TypeTicket> listTicket = query.list();
 			return listTicket;

@@ -47,7 +47,7 @@ public class FilmDAO {
 	public List<Film> getListCategory1() {
 		Session session = factory.getCurrentSession();
 		try {
-			String hql = "FROM Film WHERE category = '1'";
+			String hql = "FROM Film WHERE category = '1' and is_show='true'";
 			Query query = session.createQuery(hql).setMaxResults(8);
 			List<Film> listCategory1 = query.list();
 			return listCategory1;
@@ -61,7 +61,7 @@ public class FilmDAO {
 	public List<Film> getAllListCategory1() {
 		Session session = factory.getCurrentSession();
 		try {
-			String hql = "FROM Film WHERE category = '1'";
+			String hql = "FROM Film WHERE category = '1' and is_show='true'";
 			Query query = session.createQuery(hql);
 			List<Film> listCategory1 = query.list();
 			return listCategory1;
@@ -74,25 +74,28 @@ public class FilmDAO {
 	// list top phim sap chieu
 	public List<Film> getListCategory2() {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Film WHERE category = '2'";
+		String hql = "FROM Film WHERE category = '2' and is_show='true'";
 		Query query = session.createQuery(hql).setMaxResults(6);
 		List<Film> listCategory2 = query.list();
 		return listCategory2;
 	}
 
+
 	// list phim sap chieu
 	public List<Film> getAllListCategory2() {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Film WHERE category = '2'";
+		String hql = "FROM Film WHERE category = '2' and is_show='true'";
 		Query query = session.createQuery(hql);
 		List<Film> listCategory2 = query.list();
 		return listCategory2;
 	}
+	
+
 
 	// top film
 	public List<Film> getTopFilm() {
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Film WHERE category = '1'";
+		String hql = "FROM Film WHERE category = '1' and is_show='true'";
 		Query query = session.createQuery(hql).setMaxResults(5);
 		List<Film> topFilm = query.list();
 		return topFilm;

@@ -12,11 +12,13 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Entitys.Film;
 import Entitys.Room;
 import Entitys.Seat;
 import Entitys.Showtime;
 import Entitys.Ticket;
 import Entitys.TypeTicket;
+import Models.Notify;
 @Service
 @Transactional
 public class TicketDAO {
@@ -121,6 +123,44 @@ public class TicketDAO {
 			return list;
 		}
 		
+		// save type ticket
+		public String CreateOrUpateTicket(TypeTicket ticket) {
+			// Notify notify;
+			Session session = factory.openSession();
+			Transaction t = session.beginTransaction();
+			try {
+				session.saveOrUpdate(ticket);
+				t.commit();
+				return "successfully!";
+			} catch (Exception e) {
+				t.rollback();
+				return "fail!";
+			} finally {
+				session.close();
+			}
+		}
+		
+		//delete type ticket
+		public Notify delete(int id) {
+			Notify notify = null;
+			Session session = factory.openSession();
+			Transaction t = session.beginTransaction();
+			try {
+				TypeTicket	ticket = (TypeTicket) session.get(TypeTicket.class, id);
+				session.delete(ticket);
+				t.commit();
+				notify = new Notify(0, "successfully!");
+				return notify;
+
+			} catch (Exception e) {
+				t.rollback();
+				notify = new Notify(1, "Vui lòng xóa những thành phần liên quan !");
+				return notify;
+			} finally {
+				session.close();
+			}
+		}
+		
 		
 	
 //	// list seat in ticket table
@@ -154,4 +194,7 @@ public class TicketDAO {
 //			}
 //			return listShowtime;
 //		}
+		
+		
+		
 }

@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 
@@ -54,94 +53,57 @@
 	<section class="content">
 		<div class="container-fluid">
 			<div class="block-header">
-				<h2>
-					<%-- 					<s:message code="lable.m_film" /> --%>
-					Quản lí phim
-				</h2>
+				<h2>QUẢN LÍ COMBO</h2>
 			</div>
 			<!-- Basic Examples -->
 			<div class="row clearfix">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div class="card">
 						<div class="header">
-							<h2>
-								<%-- 								<s:message code="lable.list_film" /> --%>
-								Danh sách phim
-							</h2>
-							<ul class="header-dropdown m-r--5">
-								<li class="dropdown"><a href="javascript:void(0);"
-									class="dropdown-toggle" data-toggle="dropdown" role="button"
-									aria-haspopup="true" aria-expanded="false"> <i
-										class="material-icons">more_vert</i>
-								</a>
-									<ul class="dropdown-menu pull-right">
-										<li><a href="javascript:void(0);">Action</a></li>
-										<li><a href="javascript:void(0);">Another action</a></li>
-										<li><a href="javascript:void(0);">Something else here</a></li>
-									</ul></li>
-							</ul>
+							<h2>DANH SÁCH COMBO</h2>
 						</div>
 						<div class="body">
 							<div class="row">
 								<div class="col-sm-12" style="margin-bottom: 0 !important">
-									<p>
-										<%-- 										<s:message code="lable.new" /> --%>
-										Thêm mới
-									</p>
+									<p>Thêm mới</p>
 									<a class="btn btn-simple   btn-primary btn-icon  "
-										href="${pageContext.request.contextPath}/admin/film/insert">
+										href="${pageContext.request.contextPath}/admin/combo/insert">
 										<i class="material-icons">add</i>
 									</a>
 								</div>
 							</div>
 							<div class="fresh-datatables table-responsive">
-								<table id="js-basic-example"
-									class="table table-bordered table-striped table-hover  dataTable"
-									cellspacing="0">
+								<table id="js-basic-example_account"
+									class="table table-bordered table-striped table-hover  dataTable">
 									<thead>
 										<tr>
-											<%-- 											<th><s:message code="lable.image" /></th> --%>
-											<%-- 											<th><s:message code="lable.name_film" /></th> --%>
-											<%-- 											<th><s:message code="lable.describe" /></th> --%>
-											<%-- 											<th><s:message code="lable.release" /></th> --%>
-											<%-- 											<th><s:message code="lable.type_film" /></th> --%>
-											<th>Hình ảnh</th>
-											<th>Tên phim</th>
-											<th>Mô tả</th>
-											<th>Ngày công chiếu</th>
-											<th>Loại phim</th>
-											<th>Còn chiếu</th>
-											<th style="with: 200px !important"><s:message
-													code="lable.action" /></th>
+											<th>Tên combo</th>
+											<th>Gía</th>
+											<th>Trạng thái</th>
+											<th style="with: 200px !important">Thao tác</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="film" items="${listFilm}">
+										<c:forEach var="combo" items="${list_Combo}">
 											<tr>
-												<td>
-													<div class="td_img">
-														<img alt="unknown" src="${film.image_film}">
-													</div>
-												</td>
-												<td>${film.name}</td>
-												<td>${film.describe}</td>
-												<td>${film.release}</td>
-												<td>${film.category}</td>
+												<td>${combo.name}</td>
+												<td>${combo.price}</td>
 												<td><c:choose>
-														<c:when test="${film.is_show == true}">
+														<c:when test="${combo.available == true}">
 															<i class="material-icons">done</i>
 														</c:when>
 														<c:otherwise>
 
 														</c:otherwise>
 													</c:choose></td>
-												<td class=""><a
+
+												<td class="text-center index"><a
 													class="btn btn-simple btn-warning btn-icon edit"
-													href="${pageContext.request.contextPath}/admin/film/update/${film.id}">
+													href="${pageContext.request.contextPath}/admin/combo/update/${combo.id}">
 														<i class="material-icons">edit</i>
 												</a>
 													<button class="btn btn-simple  btn-danger btn-icon  remove"
-														type="button" onclick="onDelete('${film.id}')">
+														type="button" onclick="onDelete('${combo.id}')">
 														<i class="material-icons">delete</i>
 													</button></td>
 											</tr>
@@ -159,28 +121,8 @@
 	</section>
 	<!-- end content -->
 
-
-	<!-- Large Size -->
-	<div class="modal fade" id="largeModalEdit" tabindex="-1" role="dialog">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="largeModalLabel">Cập nhật phim</h4>
-				</div>
-				<div class="modal-body">body</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-link waves-effect">SAVE
-						CHANGES</button>
-					<button type="button" class="btn btn-link waves-effect"
-						data-dismiss="modal">CLOSE</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!-- javascript -->
 	<jsp:include page="../layouts/footer.jsp"></jsp:include>
-
 	<script
 		src="${pageContext.request.contextPath}/assets/admin/js/pages/tables/jquery-datatable.js"></script>
 
@@ -191,7 +133,7 @@
 				swal(
 						{
 							title : "XÓA",
-							text : "Bạn muốn xóa phim này ra khỏi hệ thông!",
+							text : "Bạn muốn xóa loại vé này ra khỏi hệ thống !",
 							type : "warning",
 							showCancelButton : true,
 							confirmButtonColor : "#DD6B55",
@@ -202,7 +144,7 @@
 						function() {
 							$
 									.post(
-											'${pageContext.request.contextPath}/admin/film/delete',
+											'${pageContext.request.contextPath}/admin/combo/delete',
 											{
 												id : id
 											},
@@ -215,8 +157,7 @@
 																	: 'error',
 															text : res.message
 														}, function() {
-															window.location
-																	.reload();
+															window.location.reload();
 														}
 
 												);
@@ -224,8 +165,9 @@
 						});
 			}
 		}
-	</script>
 
+		
+	</script>
 
 </body>
 

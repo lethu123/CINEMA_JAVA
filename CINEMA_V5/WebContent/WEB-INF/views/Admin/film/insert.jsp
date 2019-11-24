@@ -100,7 +100,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-ms-12 col-md-6">
+									<div class="col-sm-12 col-md-6">
 										<div class="form-group">
 											<label> <s:message code="lable.film_category" /></label>
 											<div class="form-line">
@@ -116,7 +116,7 @@
 										</div>
 
 									</div>
-									<div class="col-ms-12 col-md-6">
+									<div class="col-sm-12 col-md-6">
 										<div class="form-group">
 											<label><s:message code="lable.type_film" /></label>
 											<div class="form-line">
@@ -132,7 +132,7 @@
 										</div>
 
 									</div>
-									<div class="col-ms-12 col-md-4">
+									<div class="col-sm-12 col-md-4">
 										<div class="form-group">
 											<label><s:message code="lable.duration" /></label>
 											<div class="form-line">
@@ -144,7 +144,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-ms-12 col-md-4">
+									<div class="col-sm-12 col-md-4">
 										<div class="form-group">
 											<label><s:message code="lable.release" /></label>
 											<div class="form-line" id="bs_datepicker_container">
@@ -156,7 +156,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-ms-12 col-md-4">
+									<div class="col-sm-12 col-md-4">
 										<div class="form-group">
 											<label><s:message code="lable.evaluate" /></label>
 											<div class="form-line">
@@ -165,7 +165,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-ms-12 col-md-6">
+									<div class="col-sm-12 col-md-6">
 										<div class="form-group">
 											<label><s:message code="lable.producer" /></label>
 											<div class="form-line">
@@ -174,7 +174,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-ms-12 col-md-6">
+									<div class="col-sm-12 col-md-6">
 										<div class="form-group">
 											<label><s:message code="lable.director" /></label>
 											<div class="form-line">
@@ -183,7 +183,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-ms-12 col-md-6">
+									<div class="col-sm-12 col-md-6">
 										<div class="form-group">
 											<label><s:message code="lable.actor" /></label>
 											<div class="form-line">
@@ -192,7 +192,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-ms-12 col-md-6">
+									<div class="col-sm-12 col-md-6">
 										<div class="form-group">
 											<label><s:message code="lable.image" /></label>
 											<div class="row">
@@ -215,7 +215,7 @@
 
 										</div>
 									</div>
-									<div class="col-ms-12 col-md-12">
+									<div class="col-sm-12 col-md-12">
 										<div class="form-group">
 											<label><s:message code="lable.describe" /></label>
 											<div class="form-line">
@@ -224,7 +224,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-ms-12 col-md-12">
+									<div class="col-sm-12 col-md-12">
 										<div class="form-group">
 											<label>Trailer (link youtobe)</label>
 											<div class="form-line">
@@ -234,7 +234,7 @@
 										</div>
 									</div>
 
-									<div class="col-ms-12 col-md-12">
+									<div class="col-sm-12 col-md-12">
 										<label>Trailer</label>
 										<textarea id="ckeditor" name="_trailer"
 											placeholder="Chèn embed trailer của bạn vào đây !">
@@ -244,7 +244,7 @@
 										</div>
 									</div>
 
-									<div class="col-ms-12 text-center">
+									<div class="col-sm-12 text-center">
 										<button class="btn btn-primary" id="update" type="submit">
 											<s:message code="lable.update" />
 										</button>
